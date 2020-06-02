@@ -8,8 +8,23 @@ function App() {
         <div id="logo">Logo</div>
       </header>
       <div className="container">
-        <div id="item">translate one</div>
-        <div id="item">translate two</div>
+        <div className="item">
+          translate one
+          <form>
+            <input
+              type="text"
+              placeholder="type in a word or phrase here"
+              id="lang-one"
+            ></input>
+            <input type="dropdown" placeholder="select your language"></input>
+          </form>
+        </div>
+        <div className="item">
+          translate two
+          <form>
+            <input type="text" placeholder="translation"></input>
+          </form>
+        </div>
       </div>
     </div>
   );
