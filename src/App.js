@@ -10,8 +10,8 @@ function App() {
       </header>
       <div className="container">
         <div className="item">
+          <h2>translate one</h2>
           <form>
-            <h2>translate one</h2>
             <input
               type="text"
               placeholder="type in a word or phrase here"
@@ -38,6 +38,7 @@ function App() {
         </div>
         <div className="item">
           <h2> translate two</h2>
+          <br />
           <form>
             <input type="text" placeholder="translation"></input>
           </form>

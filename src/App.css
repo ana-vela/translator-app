@@ -25,11 +25,6 @@ header {
   margin: 50px;
 }
 
-h2 {
-  display: flex;
-  justify-content: center;
-}
-
 .item {
   background-color: rgb(218, 212, 212);
   height: 300px;
@@ -38,6 +33,7 @@ h2 {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
 form {
