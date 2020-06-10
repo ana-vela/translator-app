@@ -1,0 +1,134 @@
+#User Experience Documentation
+
+##Purpose
+This web application uses a translation API to create a streamlined and user-friendly language translator.
+
+##Audience
+The app will be geared primarily toward tourists on the go, but the ease of use will make it an attractive option for anyone needing to translate words, phrases, or texts.
+
+##Goal
+This site will allow users to select their input language, enter a word, phrase, or text, and receive a translation.
+
+##Persona Number One
+
+###Name
+Cynthia Patterson
+###Age
+20
+###Location
+San José, Costa Rica
+
+###Profession
+Cynthia is a student majoring in International Relations at the University of Oklahoma. This semester she is studying abroad at the Universidad de Costa Rica.
+
+###Technology
+The summer before she went off to college, her parents bought her a fifteen-inch Dell Inspiron 5000 with an Intel Core i5 processor. She uses this laptop for school work and entertainment when she is in the dormitory and takes her iPhone SE (running on iOS 13.4) when she goes out.
+Cynthia has taken a few Computer Science courses and is considering double majoring in it, so she has an advanced level of competency when it comes to technology.
+
+###Attitudes and Behaviors
+Because she took four years of Spanish in high school and was a serious student, Cynthia was able to test out of the first two semesters of her university’s foreign language requirement. She completed the two remaining semesters last year and attended the weekly graduate student-led conversation group during the Fall 2019 semester.
+Cynthia is well informed and politically engaged, so she appreciates having discussions and healthy debates with anyone who is interested. Her time abroad has allowed her to experience the world as an “outsider” and talk to people who have challenged many of her basic assumptions, all while forcing her to put her Spanish to use.
+
+###Frustrations and Needs
+While Cynthia has a much higher level of competency than most Americans raised in non-Hispanophone households, she is not completely fluent in Spanish. Oftentimes when she is having a conversation with one of her Costa Rican friends, she hits a vocabulary road block and either has to rely on her friends’ English fluency or just abandon the thought she was trying to express.
+She has tried a few English-Spanish dictionary apps, but she finds the user interfaces to be too complicated and too slow to load. She would much prefer something that has fewer bells and whistles and doesn’t require full-page reloads.
+
+###Goals
+Cynthia will be using her translator app on the go, so she needs something without a clunky interface. Because she doesn’t want to slow down her conversations with slow load times either, a single page application would be preferable.
+
+###User Story
+Cynthia Patterson is a native English speaker who needs a simple app for translating to Spanish while she is at school or with her friends.
+
+###Use Case
+
+####Title
+Translating a word from English to Spanish
+
+####Description
+Cynthia needs to translate the word “magnanimous” while she is out with her Spanish monolingual friends.
+
+####Name of the User and Her Role
+Cynthia Patterson, an American student studying in Costa Rica who needs to find the Spanish translation of a somewhat uncommon English word
+
+####Usage Pre-conditions
+She needs a mobile device that can access the Internet.
+
+####Usage Post-conditions
+Cynthia is quickly able to access the Spanish translation of “magnanimous”.
+
+####Interaction Flow
+1. Cynthia enters her iPhone passcode and opens the Safari app.
+2. In the address bar, she enters the URL for the React Translator App (RTA).
+3. The server receives the client’s request and returns the RTA homepage.
+4. Cynthia clicks on the “Your Language” drop-down menu and selects English.
+5. The FirstLanguageSelector component re-renders and passes the props to a parent component.
+6. Cynthia then clicks the “Target Language” drop-down menu and selects Spanish.
+7. The SecondLanguageSelector component re-renders and passes the props to a parent component.
+8. In the “Enter a word, phrase, or text” box, Cynthia types her query and presses ‘Enter’.
+9. An ‘onClick’ event triggers a ‘GET’ request to the API.
+10. The API retrieves the translation and returns it to the app.
+11. The TranslatedEntry component re-renders and displays the translated word.
+
+###Frequency of Use
+Daily
+
+***
+
+##Persona Number Two
+
+###Name
+Cameron Washington
+###Age
+27
+###Location
+Lisbon, Portugal
+
+###Profession
+Cameron is an online English as a Second Language (ESL) instructor.
+
+###Technology
+On his most recent trip to visit his family in Mississippi, Cameron bought a new HP Spectre x360 with an Intel i5 processor. He also had a Samsung Galaxy S20 but lost it three days ago and is waiting for the replacement.
+While Cameron doesn’t have a computer science background, his job requires him to be a proficient internet user.
+
+###Attitudes and Behaviors
+One of the main benefits of Cameron’s line of work is that it allows him to travel as much as he can afford. He enjoys visiting foreign countries, experiencing different cultures, and meeting locals. He has an advanced level in Spanish from living in Mexico City for a year and knows various words and phrases from other non-English languages.
+
+###Frustrations and Needs
+Cameron usually stays in youth hostels due to their relative cheapness and their social atmosphere. While he enjoys the camaraderie, he rarely gets to interact with travelers who don’t speak English or Spanish.
+He has tried sites like WordReference before but doesn’t like being redirected to a new page for each definition. Since the Wi-Fi can be spotty in some of the hostels, he believes a web app that consists of just a single page would make the translation process easier for him.
+
+###Goals
+Since Cameron doesn’t have a mobile device right now, he needs a translation app with a desktop version that is fast and reliable.
+
+###User Story
+Cameron Washington is an American currently staying in Lisbon who needs a translation web app with a good desktop interface.
+
+###Use Case
+
+####Title 
+Communicating with a Ukrainian traveler whose English is limited
+
+####Description
+Cameron’s next door neighbor at the hostel is a Ukrainian woman who speaks Portuguese but only knows a few words of English. He needs to explain the best way to get to the train station to her.
+
+####Name of the User and His Role
+Cameron Washington, an ESL teacher currently residing in Lisbon who needs to find the Ukrainian or Portuguese translations of several words
+
+####Usage Pre-conditions
+He needs a laptop with WiFi capabilities and a decent WiFi connection.
+
+####Usage Post-conditions
+1. Cameron turns on his laptop and opens Firefox.
+2. In the address bar, he enters the React Translator App (RTA) URL.
+3. The server receives the client’s request and returns the RTA homepage.
+4. Cameron clicks on the “Your Language” drop-down menu and selects English.
+5. The FirstLanguageSelector component re-renders and passes the props to a parent component.
+6. Cameron then clicks the “Target Language” drop-down menu and selects Ukrainian or Portuguese.
+7. The SecondLanguageSelector component re-renders and passes the props to a parent component.
+8. In the “Enter a word, phrase, or text” box, Cameron types his query and presses ‘Enter’.
+9. An ‘onClick’ event triggers a ‘GET’ request to the API.
+10. The API retrieves the translation and returns it to the app.
+11. The TranslatedEntry component re-renders and displays the translated phrase.
+
+###Frequency of Use
+Multiple times per week
