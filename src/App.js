@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import "./App.css";
+import TargetLangSelector from "./TargetLangSelector";
 
 function App() {
   return (
@@ -42,21 +43,7 @@ function App() {
           <form>
             <input type="text" placeholder="translation"></input>
             <div className="dropdown target-lang">
-              <button>
-                <a href="#" type="dropdown" placeholder="select your language">
-                  Target Language
-                </a>{" "}
-              </button>
-              <div className="dropdown-content">
-                <a href="#">English</a>
-                <br />
-                <a href="#">French</a>
-                <br />
-                <a href="#">Japanese</a>
-                <br />
-                <a href="#">Russian</a>
-                <br />
-              </div>
+              <TargetLangSelector />
             </div>
           </form>
         </div>
