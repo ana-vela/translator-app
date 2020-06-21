@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import "./App.css";
+import SourceLang from "./SourceLang";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
               </div>
             </div>
           </form>
+          <SourceLang />
         </div>
         <div className="item">
           <h2> translate two</h2>
