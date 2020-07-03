@@ -1,4 +1,9 @@
 import React, {useState, useEffect} from 'react';
+import { encode } from "base-64";
+
+let headers = new Headers();
+
+headers.append('Authorization', 'Basic ' + encode(process.env.REACT_APP_API_USERNAME + ":" + process.env.REACT_APP_API_PASSWORD));
 
 const LanguageSelector = () => {
     //Set the default items state to an empty array.
@@ -15,24 +20,23 @@ const LanguageSelector = () => {
 
     useEffect(() => {
         async function getLanguages() {
-            const API_KEY = process.env.REACT_APP_MW_API_KEY;
-
-            const request = await fetch("https://www.dictionaryapi.com/api/v3/references/spanish/json/test?key=" + API_KEY)
-                .then(response => response.json())
-                .then(data => console.log(data));
-            //console.log(response);
-            //const body = await response.json();
             
-            //setItems(body.meta.lang.map(({ lang }) => ({label: lang, value: lang})));
+            const request = await fetch("https://dictapi.lexicala.com/languages", {
+                        method: 'GET', headers: headers
+                    });
+            const body = await request.json();
+            console.log(body);
+            
+            setItems(body.resources.global.source_languages.map(source_languages => ({label: source_languages, value: source_languages})));
         }
         getLanguages();
     }, []);
 
     return (
         <select>
-            {items.map(({label, value}) => (
-                <option key={value} value={value}>
-                    {label}
+            {items.map(item => (
+                <option key={item.value} value={item.value}>
+                    {item.label}
                 </option>
             ))}
         </select>
