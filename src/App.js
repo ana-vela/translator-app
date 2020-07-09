@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import "./App.css";
-import "./TargetLanguageSelector";
-import TargetLanguageSelector from "./TargetLanguageSelector";
+import "./SourceLanguageSelector";
+import SourceLanguageSelector from "./SourceLanguageSelector";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
               placeholder="type in a word or phrase here"
               id="lang-one"
             ></input>
-           <TargetLanguageSelector /> 
+           <SourceLanguageSelector /> 
           </form>
         </div>
         <div className="item">

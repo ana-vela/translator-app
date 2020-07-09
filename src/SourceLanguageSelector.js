@@ -5,7 +5,7 @@ let headers = new Headers();
 
 headers.append('Authorization', 'Basic ' + encode(process.env.REACT_APP_API_USERNAME + ":" + process.env.REACT_APP_API_PASSWORD));
 
-const TargetLanguageSelector = () => {
+const SourceLanguageSelector = () => {
 
     //We initialize the `loading` state to `true` while we wait for the useEffect() hook to run.
     //In the JSX the `select` element will be disabled while `loading` is `true`.
@@ -75,4 +75,4 @@ const TargetLanguageSelector = () => {
 
 };
 
-export default TargetLanguageSelector;
+export default SourceLanguageSelector;
