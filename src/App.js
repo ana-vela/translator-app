@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 import "./SourceLanguageSelector";
 import SourceLanguageSelector from "./SourceLanguageSelector";
+import TargetLanguageSelector from './TargetLanguageSelector';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <form>
             <input type="text" placeholder="translation"></input>
           </form>
+          <TargetLanguageSelector />
         </div>
       </div>
     </div>
