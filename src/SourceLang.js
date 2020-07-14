@@ -32,10 +32,21 @@ function SourceLang() {
       );
 
       //testing filter method
-      let comparing = Object.keys(body.language_names).filter((language) =>
-        body.resources.global.source_languages.includes(language)
-      );
-      console.log(comparing);
+      // let comparing = Object.keys(body.language_names).filter((language) =>
+      //   body.resources.global.source_languages.includes(language)
+      // );
+      // console.log(comparing);
+
+      // testing reduce method
+      const sourceLang = body.resources.global.source_languages;
+      const langName = body.language_names;
+      function compare(sourceLang, langName) {
+        return sourceLang.reduce(function (newObj, key) {
+          if (key in langName) newObj[key] = langName[key];
+          return newObj;
+        }, {});
+      }
+      console.log(compare(sourceLang, langName));
     }
     getLang();
   }, []);
