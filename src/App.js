@@ -19,24 +19,9 @@ function App() {
               id="lang-one"
             ></input>
             <div className="dropdown first-lang">
-              <button>
-                <a href="#" type="dropdown" placeholder="select your language">
-                  First Language
-                </a>{" "}
-              </button>
-              <div className="dropdown-content">
-                <a href="#">English</a>
-                <br />
-                <a href="#">French</a>
-                <br />
-                <a href="#">Japanese</a>
-                <br />
-                <a href="#">Russian</a>
-                <br />
-              </div>
+              <SourceLang />
             </div>
           </form>
-          <SourceLang />
         </div>
         <div className="item">
           <h2> translate two</h2>
