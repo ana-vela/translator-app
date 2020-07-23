@@ -37,17 +37,41 @@ const SourceLanguageSelector = () => {
         let unmounted = false;
 
         async function getLanguages() {
-            
+
+            //Make a call to the API and parse the response as JSON.
             const request = await fetch("https://dictapi.lexicala.com/languages", {
                         method: 'GET', headers: headers
                     });
             const body = await request.json();
             console.log(body);
+
+            /*
+            Create variables for the `source_languages` array and the `language_names` object.
+            The `compare` function goes through each item in the `source_lang` array,
+            and if the key from the `targetLang` array is in the `langName` object,
+            set the keys equal to each other and return the `obj`.
+            */
+            const sourceLang = body.resources.global.source_languages;
+            const langName = body.language_names;
+
+            const compare = (sourceLanguage, languageName) => {
+                return sourceLanguage.reduce((obj, key) => {
+                    if (key in languageName) {
+                        obj[key] = languageName[key];
+                    }
+                    return obj;
+                }, {});
+            }
+
+            const sourceLanguageNames = compare(sourceLang, langName);
             
             //Verify the value of `unmounted` is still `false` before we set the state.
             if (!unmounted) {
-                setItems(body.resources.global.source_languages.map(source_languages => 
-                    ({label: source_languages, value: source_languages}))
+                setItems(
+                    Object.values(sourceLanguageNames).map((sourceLanguageName) => ({
+                        label: sourceLanguageName,
+                        value: sourceLanguageName
+                    }))
                     );
                 setLoading(false);
             }

@@ -43,11 +43,35 @@ const TargetLanguageSelector = () => {
                     });
             const body = await request.json();
             console.log(body);
+
+            /*
+            Create variables for the `target_languages` array and the `language_names` object.
+            The `compare` function goes through each item in the `targetLang` array,
+            and if the key from the `targetLang` array is in the `langName` object,
+            set the keys equal to each other and return the `obj`.
+            */
+           const targetLang = body.resources.global.target_languages;
+           const langName = body.language_names;
+
+           const compare = (targetLanguage, languageName) => {
+               return targetLanguage.reduce((obj, key) => {
+                   if (key in languageName) {
+                       obj[key] = languageName[key];
+                   }
+                   return obj;
+               }, {});
+           }
+
+           const targetLanguageNames = compare(targetLang, langName);
             
             //Verify the value of `unmounted` is still `false` before we set the state.
             if (!unmounted) {
-                setItems(body.resources.global.target_languages.map(source_languages => 
-                    ({label: source_languages, value: source_languages}))
+                setItems(
+                    Object.values(targetLanguageNames).map(target_languages => 
+                    ({
+                        label: target_languages, 
+                        value: target_languages
+                    }))
                     );
                 setLoading(false);
             }
