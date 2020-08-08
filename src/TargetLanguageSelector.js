@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { encode } from 'base-64';
+import {SourceLanguageContext} from './SourceLanguageContext';
 
 let headers = new Headers();
 
 headers.append('Authorization', 'Basic ' + encode(process.env.REACT_APP_API_USERNAME + ":" + process.env.REACT_APP_API_PASSWORD));
 
 const TargetLanguageSelector = () => {
+
+    const sourceContext = useContext(SourceLanguageContext);
+    const { sourceValue } = sourceContext;
 
     //We initialize the `loading` state to `true` while we wait for the useEffect() hook to run.
     //In the JSX the `select` element will be disabled while `loading` is `true`.
@@ -19,7 +23,7 @@ const TargetLanguageSelector = () => {
 
     //This piece of state is bound to the value prop in the `select` statement.
     //There is an `onChange` event listener that will update the state.
-    const [value, setValue] = useState();
+    const [targetValue, setTargetValue] = useState();
 
     /*
      The effect will run after the component first renders due to the empty array in the second parameter.
@@ -42,7 +46,6 @@ const TargetLanguageSelector = () => {
                         method: 'GET', headers: headers
                     });
             const body = await request.json();
-            console.log(body);
 
             /*
             Create variables for the `target_languages` array and the `language_names` object.
@@ -74,7 +77,7 @@ const TargetLanguageSelector = () => {
                     }))
                     );
                 setLoading(false);
-            }
+            }   
         }
         getLanguages();
 
@@ -84,11 +87,11 @@ const TargetLanguageSelector = () => {
         }
     }, []);
 
-    return (
+    return ( 
         <select 
             disabled={loading}
-            value={value}
-            onChange={e => setValue(e.currentTarget.value)}>
+            value={targetValue}
+            onChange={e => setTargetValue(e.currentTarget.value)}>
             {items.map(item => (
                 <option key={item.value} value={item.value}>
                     {item.label}

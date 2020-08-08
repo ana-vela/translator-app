@@ -46,7 +46,6 @@ export const SourceLanguageProvider = (props) => {
                         method: 'GET', headers: headers
                     });
             const body = await request.json();
-            console.log(body);
 
             /*
             Create variables for the `source_languages` array and the `language_names` object.
