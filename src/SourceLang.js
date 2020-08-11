@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { encode } from "base-64";
-
+import { useQuery } from "react-query";
 let headers = new Headers();
 
 //headers.append('Content-Type', 'text/json');
@@ -15,44 +15,60 @@ headers.append(
 );
 
 function SourceLang() {
-  const [items, setItems] = React.useState([]);
+  const [items, setItems] = useState([]);
 
-  React.useEffect(() => {
-    async function getLang() {
-      const response = await fetch("https://dictapi.lexicala.com/languages", {
-        method: "GET",
-        headers: headers,
-      });
-      const body = await response.json();
-      const sourceLang = body.resources.global.source_languages;
-      const langName = body.language_names;
+  const FetchSource = async () => {
+    const res = await fetch("https://dictapi.lexicala.com/languages", {
+      method: "GET",
+      headers: headers,
+    });
 
-      function compare(sourceLang, langName) {
-        return sourceLang.reduce(function (newObj, key) {
-          if (key in langName) newObj[key] = langName[key];
-          return newObj;
-        }, {});
-      }
-      const sourceLangNames = compare(sourceLang, langName);
+    const data = await res.json();
+    const sourceLang = data.resources.global.source_languages;
+    const langName = data.language_names;
 
-      setItems(
-        Object.values(sourceLangNames).map((sourceLangName) => ({
-          label: sourceLangName,
-          value: sourceLangName,
-        }))
-      );
+    function compare(sourceLang, langName) {
+      return sourceLang.reduce(function (newObj, key) {
+        if (key in langName) newObj[key] = langName[key];
+        return newObj;
+      }, {});
     }
-    getLang();
-  }, []);
+    const sourceLangNames = compare(sourceLang, langName);
 
+    setItems(
+      Object.values(sourceLangNames).map((sourceLangName) => ({
+        label: sourceLangName,
+        value: sourceLangName,
+      }))
+    );
+    return data;
+  };
+
+  function GetLang() {
+    const { status, data, error } = useQuery("sourceLanguages", FetchSource);
+
+    if (status === "loading") return <div>Loading...</div>;
+    if (status === "error") return <div>Error! {error}</div>;
+    if (status === "success") return <div>Success</div>;
+
+    return (
+      <div>
+        <pre>{JSON.stringify(data, null, 2)}; </pre>
+      </div>
+    );
+  }
+  GetLang();
   return (
-    <select>
-      {items.map(({ label, value }) => (
-        <option key={value} value={value}>
-          {label}
-        </option>
-      ))}
-    </select>
+    <div>
+      {" "}
+      <select>
+        {items.map(({ label, value }) => (
+          <option key={value} value={value}>
+            {label}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 }
 
