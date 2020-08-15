@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import "./App.css";
+import SourceLanguageSelector from './SourceLanguageSelector';
 
 function App() {
   return (
@@ -23,16 +24,7 @@ function App() {
                   First Language
                 </a>{" "}
               </button>
-              <div className="dropdown-content">
-                <a href="#">English</a>
-                <br />
-                <a href="#">French</a>
-                <br />
-                <a href="#">Japanese</a>
-                <br />
-                <a href="#">Russian</a>
-                <br />
-              </div>
+              <SourceLanguageSelector />
             </div>
           </form>
         </div>
@@ -41,23 +33,6 @@ function App() {
           <br />
           <form>
             <input type="text" placeholder="translation"></input>
-            <div className="dropdown target-lang">
-              <button>
-                <a href="#" type="dropdown" placeholder="select your language">
-                  Target Language
-                </a>{" "}
-              </button>
-              <div className="dropdown-content">
-                <a href="#">English</a>
-                <br />
-                <a href="#">French</a>
-                <br />
-                <a href="#">Japanese</a>
-                <br />
-                <a href="#">Russian</a>
-                <br />
-              </div>
-            </div>
           </form>
         </div>
       </div>
