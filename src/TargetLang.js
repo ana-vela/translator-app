@@ -14,7 +14,7 @@ headers.append(
     )
 );
 
-function SourceLang() {
+function TargetLang() {
   const [items, setItems] = useState([]);
 
   const FetchSource = async () => {
@@ -24,28 +24,28 @@ function SourceLang() {
     });
 
     const data = await res.json();
-    const sourceLang = data.resources.global.source_languages;
+    const TargetLang = data.resources.global.target_languages;
     const langName = data.language_names;
 
-    function compare(sourceLang, langName) {
-      return sourceLang.reduce(function (newObj, key) {
+    function compare(TargetLang, langName) {
+      return TargetLang.reduce(function (newObj, key) {
         if (key in langName) newObj[key] = langName[key];
         return newObj;
       }, {});
     }
-    const sourceLangNames = compare(sourceLang, langName);
+    const targetLangNames = compare(TargetLang, langName);
 
     setItems(
-      Object.values(sourceLangNames).map((sourceLangName) => ({
-        label: sourceLangName,
-        value: sourceLangName,
+      Object.values(targetLangNames).map((targetLangName) => ({
+        label: targetLangName,
+        value: targetLangName,
       }))
     );
     return data;
   };
 
   function GetLang() {
-    const { status, data, error } = useQuery("sourceLanguages", FetchSource, {
+    const { status, data, error } = useQuery("targetLanguages", FetchSource, {
       retry: 0,
     });
 
@@ -74,4 +74,4 @@ function SourceLang() {
   );
 }
 
-export default SourceLang;
+export default TargetLang;
