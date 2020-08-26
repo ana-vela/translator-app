@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 import SourceLang from "./SourceLang";
 import TargetLang from "./TargetLang";
+import InputField from "./InputField";
 import TranslateButton from "./TranslateButton";
 import { ReactQueryDevtools } from "react-query-devtools";
 
