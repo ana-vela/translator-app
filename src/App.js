@@ -21,8 +21,8 @@ function App() {
               <InputField />
               <div className="dropdown first-lang">
                 <SourceLang />
-                <TranslateButton />
               </div>
+              <TranslateButton />
             </form>
           </div>
           <div className="item">
