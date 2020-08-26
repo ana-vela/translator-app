@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { encode } from "base-64";
 import { useQuery } from "react-query";
 let headers = new Headers();
+/* eslint no-restricted-globals:0 */
 
 //headers.append('Content-Type', 'text/json');
 headers.append(
@@ -26,6 +27,7 @@ function SourceLang() {
     const data = await res.json();
     const sourceLang = data.resources.global.source_languages;
     const langName = data.language_names;
+    console.log(data);
 
     function compare(sourceLang, langName) {
       return sourceLang.reduce(function (newObj, key) {
@@ -50,9 +52,8 @@ function SourceLang() {
     });
 
     if (status === "loading") return <div>Loading...</div>;
-    if (status === "error") return <div>Error! {error}</div>;
+    if (status === "error") return <div>Error! {JSON.stringify(error)}</div>;
     if (status === "success") return <div>Success</div>;
-
     return (
       <div>
         <pre>{JSON.stringify(data, null, 2)}; </pre>
@@ -64,13 +65,15 @@ function SourceLang() {
     <div>
       {" "}
       <select>
+        {status === "loading" && <div> Loading data...</div>}
+        {status === "success" && <div> Working </div>}
         {items.map(({ label, value }) => (
           <option key={value} value={value}>
             {label}
           </option>
         ))}
       </select>
-    </div>
+q    </div>
   );
 }
 

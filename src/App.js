@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 import SourceLang from "./SourceLang";
 import TargetLang from "./TargetLang";
+import TranslateButton from "./TranslateButton";
 import { ReactQueryDevtools } from "react-query-devtools";
 
 function App() {
@@ -16,13 +17,10 @@ function App() {
           <div className="item">
             <h2>translate one</h2>
             <form>
-              <input
-                type="text"
-                placeholder="type in a word or phrase here"
-                id="lang-one"
-              ></input>
+              <InputField />
               <div className="dropdown first-lang">
                 <SourceLang />
+                <TranslateButton />
               </div>
             </form>
           </div>
