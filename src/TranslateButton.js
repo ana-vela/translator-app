@@ -33,12 +33,10 @@ function TranslateFunction() {
     setWord(data.results);
     // return data;
     return TranslateFunction;
-    // console.log(TargetLang());
   };
   function handleClick(e) {
     e.preventDefault();
     console.log("test");
-
     return FetchSource();
   }
   return (
