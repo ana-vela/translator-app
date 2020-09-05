@@ -41,7 +41,7 @@ export const DictionaryProvider = (props) => {
         async function getLanguages() {
 
             //Make a call to the API and parse the response as JSON.
-            const request = await fetch("https://api.collinsdictionary.com/api/v1/dictionaries", {
+            const request = await fetch("https://cors-anywhere.herokuapp.com/https://api.collinsdictionary.com/api/v1/dictionaries", {
                         method: 'GET', 
                         headers: {
                             'accessKey': process.env.REACT_APP_COLLINS_API_KEY,
@@ -58,14 +58,16 @@ export const DictionaryProvider = (props) => {
             and if the key from the `targetLang` array is in the `langName` object,
             set the keys equal to each other and return the `obj`.
             */
+            
             //const dictionaries = body.dictionaryName;
+            //console.log(dictionaries);
             
             //Verify the value of `unmounted` is still `false` before we set the state.
             if (!unmounted) {
-                setItems(body.map((dictionaryName) => 
+                setItems(Object.keys(body).map((dictionaryName, dictionaryCode) => 
                         ({
                             label: dictionaryName,
-                            value: dictionaryName
+                            value: dictionaryCode
                         }))
                     );
                 setLoading(false);
