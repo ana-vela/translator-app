@@ -64,7 +64,8 @@ export const DictionaryProvider = (props) => {
             
             //Verify the value of `unmounted` is still `false` before we set the state.
             if (!unmounted) {
-                setItems(Object.keys(body).map((dictionaryName, dictionaryCode) => 
+                setItems(body.filter((item) => item['dictionaryCode'] !== 'english')
+                    .map(({dictionaryName, dictionaryCode}) => 
                         ({
                             label: dictionaryName,
                             value: dictionaryCode
