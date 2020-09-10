@@ -2,9 +2,6 @@ import React, {useState, createContext, useEffect} from 'react';
 
 export const DictionaryContext = createContext();
 
-//let myheader = new Headers();
-
-//myheader.append('Authorization', 'Basic ' + process.env.REACT_APP_COLLINS_API_KEY);
 
 export const DictionaryProvider = (props) => {
 
@@ -51,16 +48,6 @@ export const DictionaryProvider = (props) => {
                     //.then( data => console.log(data) );
             const body = await request.json();
             console.log(body);
-
-            /*
-            Create variables for the `source_languages` array and the `language_names` object.
-            The `compare` function goes through each item in the `source_lang` array,
-            and if the key from the `targetLang` array is in the `langName` object,
-            set the keys equal to each other and return the `obj`.
-            */
-            
-            //const dictionaries = body.dictionaryName;
-            //console.log(dictionaries);
             
             //Verify the value of `unmounted` is still `false` before we set the state.
             if (!unmounted) {
