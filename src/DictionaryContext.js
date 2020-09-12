@@ -44,10 +44,7 @@ export const DictionaryProvider = (props) => {
                             'accessKey': process.env.REACT_APP_COLLINS_API_KEY,
                         }
                     })
-                    //.then( response => response.json())
-                    //.then( data => console.log(data) );
             const body = await request.json();
-            console.log(body);
             
             //Verify the value of `unmounted` is still `false` before we set the state.
             if (!unmounted) {

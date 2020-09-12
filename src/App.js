@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 import DictionarySelector from './DictionarySelector';
 import {DictionaryProvider} from './DictionaryContext';
+import SearchBar from './SearchBar';
 
 function App() {
   return (
@@ -15,11 +16,7 @@ function App() {
               <div className="item">
                 <h2>translate one</h2>
                 <form>
-                  <input
-                    type="text"
-                    placeholder="type in a word or phrase here"
-                    id="lang-one"
-                  ></input>
+                  <SearchBar />
                   <div className="dropdown first-lang">
                     <DictionarySelector />
                   </div>
