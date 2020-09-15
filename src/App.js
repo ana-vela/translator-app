@@ -4,6 +4,7 @@ import "./App.css";
 import DictionarySelector from './DictionarySelector';
 import {DictionaryProvider} from './DictionaryContext';
 import SearchBar from './SearchBar';
+import {SearchBarProvider} from './SearchBarContext';
 
 function App() {
   return (
@@ -15,12 +16,14 @@ function App() {
         <div className="container">
               <div className="item">
                 <h2>translate one</h2>
-                <form>
-                  <SearchBar />
-                  <div className="dropdown first-lang">
-                    <DictionarySelector />
-                  </div>
-                </form>
+                <SearchBarProvider>
+                  <form>
+                    <SearchBar />
+                    <div className="dropdown first-lang">
+                      <DictionarySelector />
+                    </div>
+                  </form>
+                </SearchBarProvider>
               </div>
           <div className="item">
             <h2> translate two</h2>
