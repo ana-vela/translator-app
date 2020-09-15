@@ -16,13 +16,13 @@ const SearchBar = () => {
     const handleInputChange = (e) => setSearchTerm(e.currentTarget.value);
 
     //Initial styling for the search bar
-    const SearchBarStyling = {width:"20rem",
-                        border:"none",
-                        padding:"0.5rem"
-                        };
+    // const SearchBarStyling = { //width:"20rem",
+    //                     // border:"none",
+    //                     // padding:"0.5rem"
+    //                     };
     return (
         <input
-            style={SearchBarStyling}
+           // style={SearchBarStyling}
             value={searchTerm}
             placeholder={'Type your search here.'}
             onChange = {handleInputChange}

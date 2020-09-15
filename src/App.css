@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  width: 100%;
+  height: 100%;
 }
 
 .App-logo {
@@ -34,15 +36,6 @@ header {
   justify-content: center;
   flex-wrap: wrap;
   flex-direction: column;
-}
-
-form {
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
 }
 
 .dropdown {
@@ -88,4 +81,20 @@ form {
 
 .dropdown:hover button {
   background-color: rgb(230, 212, 179);
+}
+
+.card-style {
+  color: rgb(76, 76, 240);
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 50px;
+}
+
+.card-body {
+  margin-top: 40px;
+}
+
+.card-title {
+  color: white;
+  margin-top: 20px;
 }

@@ -5,33 +5,51 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import DictionarySelector from "./DictionarySelector";
 import { DictionaryProvider } from "./DictionaryContext";
 import SearchBar from "./SearchBar";
+import { Container, Card } from "react-bootstrap";
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <div id="logo">Logo</div>
+      <header className="navbar navbar-light bg-light">
+        <div id="logo">Translate It!</div>
       </header>
-      <DictionaryProvider>
-        <div className="container">
-          <div className="item">
-            <h2>translate one</h2>
-            <form>
-              <SearchBar />
-              <div className="dropdown first-lang">
-                <DictionarySelector />
+      <Container
+        className="card-container pt-5 mb-5"
+        style={{ backgroundColor: "eggshell", width: "100%" }}
+        fluid
+      >
+        <Card
+          className="card-style"
+          style={{ minWidth: "400px", backgroundColor: "#4F5CBE" }}
+        >
+          <DictionaryProvider>
+            <div>
+              <div>
+                <Card.Title>New Search</Card.Title>
+                <Card.Body className="card-body">
+                  <SearchBar />
+                  <div className="dropdown first-lang">
+                    <DictionarySelector />
+                  </div>
+                </Card.Body>
               </div>
-            </form>
-          </div>
-          <div className="item">
-            <h2> translate two</h2>
-            <br />
-            <form>
-              <input type="text" placeholder="translation"></input>
-            </form>
-          </div>
-        </div>
-      </DictionaryProvider>
+            </div>
+          </DictionaryProvider>
+        </Card>
+
+        <Card
+          className="card-style pb-5"
+          style={{ minWidth: "400px", backgroundColor: "#C0C0C0" }}
+        >
+          <Card.Body className="card-body">
+            <input
+              type="text"
+              placeholder="translation results"
+              style={{ height: "50px" }}
+            ></input>
+          </Card.Body>
+        </Card>
+      </Container>
     </div>
   );
 }
