@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import DictionarySelector from "./DictionarySelector";
 import { DictionaryProvider } from "./DictionaryContext";
 import SearchBar from "./SearchBar";
-import { Container, Card } from "react-bootstrap";
+import { Container, Card, InputGroup, Row, Col, Button } from "react-bootstrap";
 
 function App() {
   return (
@@ -27,10 +27,17 @@ function App() {
               <div>
                 <Card.Title>New Search</Card.Title>
                 <Card.Body className="card-body">
-                  <SearchBar />
-                  <div className="dropdown first-lang">
-                    <DictionarySelector />
-                  </div>
+                  <Row>
+                    <Col>
+                      <SearchBar />
+                    </Col>
+                    <InputGroup.Append>
+                      <DictionarySelector />
+                    </InputGroup.Append>
+                  </Row>
+                  <Button variant="secondary" size="lg">
+                    Submit
+                  </Button>
                 </Card.Body>
               </div>
             </div>
