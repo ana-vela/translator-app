@@ -5,6 +5,7 @@ import DictionarySelector from './DictionarySelector';
 import {DictionaryProvider} from './DictionaryContext';
 import SearchBar from './SearchBar';
 import {SearchBarProvider} from './SearchBarContext';
+import SearchButton from './SearchButton';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
                     <div className="dropdown first-lang">
                       <DictionarySelector />
                     </div>
+                    <SearchButton />
                   </form>
                 </SearchBarProvider>
               </div>
