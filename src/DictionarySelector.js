@@ -1,12 +1,6 @@
 import React, { useContext } from "react";
 import { DictionaryContext } from "./DictionaryContext";
-import {
-  DropdownButton,
-  InputGroup,
-  Dropdown,
-  Button,
-  FormControl,
-} from "react-bootstrap";
+import { DropdownButton, InputGroup, Dropdown } from "react-bootstrap";
 
 const DictionarySelector = () => {
   const sourceContext = useContext(DictionaryContext);

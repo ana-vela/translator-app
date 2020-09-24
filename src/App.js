@@ -49,11 +49,12 @@ function App() {
           style={{ minWidth: "400px", backgroundColor: "#C0C0C0" }}
         >
           <Card.Body className="card-body">
-            <input
+            <textarea
               type="text"
+              readOnly = {true} 
               placeholder="translation results"
-              style={{ height: "50px" }}
-            ></input>
+              style={{ height: "200px", width: '400px' }}
+            ></textarea>
           </Card.Body>
         </Card>
       </Container>
