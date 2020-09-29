@@ -17,7 +17,7 @@ export const DictionaryProvider = (props) => {
 
      //This piece of state is bound to the value prop in the `select` statement.
     //There is an `onChange` event listener that will update the state.
-    const [dictionaryValue, setDictionaryValue] = useState();
+    const [dictionaryValue, setDictionaryValue] = useState('english-french');
 
     /*
      The effect will only run when the component first renders (i.e. when it is mounted)

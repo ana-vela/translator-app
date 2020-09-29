@@ -1,55 +1,55 @@
-import React, {useContext, useState, useRef, useEffect, useCallback} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {DictionaryContext} from './DictionaryContext';
 import {SearchBarContext} from './SearchBarContext';
 
 const SearchButton = () => {
 
+    //The following states are imported from DictionaryContext and SearchBarContext.
     const sourceContext = useContext(DictionaryContext);
-    
-    
+    const {dictionaryValue} = sourceContext;
     const searchContext = useContext(SearchBarContext);
-    
+    const {searchTerm} = searchContext;
 
+    //This state and the state update function make the useEffect dependent on the search state
+    //rather than the searchTerm, which is tied to an event listener that listens for every keystroke.
+    const [search, setSearch] = useState();
 
-    const [isSending, setIsSending] = useState(false);
-    const isMounted = useRef(true);
+    //const [entryId, setEntryId] = useState();
 
-    //When the component unmounts, we will set `isMounted` to `false`.
+    /*This use effect will run when the button is clicked.
+      It first makes a call to the API to obtain the `entryId` for the search value.
+    */
     useEffect(() => {
-        return () => {
-            isMounted.current = false;
+
+        async function getEntryId() {
+            const request = await fetch(`https://cors-anywhere.herokuapp.com/https://api.collinsdictionary.com/api/v1/dictionaries/${dictionaryValue}/search/?q=${search}`, {
+                method: 'GET', 
+                headers: {
+                    'accessKey': process.env.REACT_APP_COLLINS_API_KEY,
+                }
+            })
+            const body = await request.json();
+            console.log(body);
         }
-    }, []);
+        getEntryId();
 
-    const sendRequest = useCallback(async (event) => {
+        //async function getTranslation() {
 
-        const {dictionaryValue} = sourceContext;
-        const {searchTerm} = searchContext;
+        //}
+       
+    }, [dictionaryValue, search]);
 
-        //Don't send multiple requests simultaneously.
-        if (isSending) return;
-        //Update the state.
-        setIsSending(true);
-        //Send the request
-        const request = await fetch(`https://cors-anywhere.herokuapp.com/https://api.collinsdictionary.com/api/v1/dictionaries/${dictionaryValue.dictionaryCode}/search/?q=${searchTerm}`, {
-            method: 'GET', 
-            headers: {
-                'accessKey': process.env.REACT_APP_COLLINS_API_KEY,
-            }
-        })
-        const body = await request.json();
-        console.log(body);
-        //After the request has been sent, update the state again.
-        if (isMounted.current) {
-            setIsSending(false);
-        }
-
-        event.preventDefault();
-
-    }, [isSending, sourceContext, searchContext]);
+    //This function prevents the page from refreshing when the button is clicked
+    //and runs the search state update function.
+    //It will be called in the `onClick` event in the `return` statement.
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setSearch(searchTerm);
+    };
+    
 
     return (
-        <button disabled={isSending} onClick={sendRequest}>
+        <button onClick={handleSubmit}>
             Search
         </button>
     );

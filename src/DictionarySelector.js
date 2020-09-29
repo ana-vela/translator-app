@@ -10,7 +10,7 @@ const DictionarySelector = () => {
     return (
         <select 
             disabled={loading}
-            value={dictionaryValue}
+            defaultValue={dictionaryValue}
             onChange={e => setDictionaryValue(e.currentTarget.value)}>
             {items.map(item => (
                 <option key={item.value} value={item.value}>
