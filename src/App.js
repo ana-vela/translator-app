@@ -27,15 +27,17 @@ function App() {
               <div>
                 <Card.Title>New Search</Card.Title>
                 <Card.Body className="card-body">
-                  <Row>
-                    <Col>
+                  <Row className="justify-content-lg-center">
+                    <Col md={6} lg={6}>
                       <SearchBar />
                     </Col>
-                    <InputGroup.Append>
-                      <DictionarySelector />
-                    </InputGroup.Append>
+                    <Col>
+                      <InputGroup.Append>
+                        <DictionarySelector />
+                      </InputGroup.Append>
+                    </Col>
                   </Row>
-                  <Button variant="secondary" size="lg">
+                  <Button id="submit-button" variant="secondary" size="lg">
                     Submit
                   </Button>
                 </Card.Body>
@@ -51,9 +53,9 @@ function App() {
           <Card.Body className="card-body">
             <textarea
               type="text"
-              readOnly = {true} 
+              readOnly={true}
               placeholder="translation results"
-              style={{ height: "200px", width: '400px' }}
+              style={{ height: "200px", width: "500px" }}
             ></textarea>
           </Card.Body>
         </Card>
