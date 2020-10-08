@@ -28,10 +28,10 @@ header {
   flex-direction: column;
 } */
 
-.dropdown .btn  {
+.dropdown .btn {
   background-color: white;
-  width: 300px;
-  position: center;
+  width: 250px;
+  max-width: 100%;
 }
 
 .card-style {
@@ -48,7 +48,6 @@ header {
 .card-title {
   color: white;
   margin-top: 20px;
-  font-size: 30px;
 }
 
 #submit-button {

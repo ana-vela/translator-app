@@ -15,23 +15,20 @@ function App() {
       </header>
       <Container
         className="card-container pt-5 mb-5"
-        style={{ backgroundColor: "eggshell", width: "100%" }}
+        style={{ backgroundColor: "eggshell" }}
         fluid
       >
-        <Card
-          className="card-style"
-          style={{ minWidth: "400px", backgroundColor: "#4F5CBE" }}
-        >
+        <Card className="card-style" style={{ backgroundColor: "#4F5CBE" }}>
           <DictionaryProvider>
             <div>
               <div>
-                <Card.Title>New Search</Card.Title>
+                <Card.Title style={{fontSize: "30px"}}>New Search</Card.Title>
                 <Card.Body className="card-body">
                   <Row className="justify-content-lg-center">
                     <Col md={6} lg={6}>
                       <SearchBar />
                     </Col>
-                    <Col>
+                    <Col md="auto">
                       <InputGroup.Append>
                         <DictionarySelector />
                       </InputGroup.Append>
@@ -48,15 +45,19 @@ function App() {
 
         <Card
           className="card-style pb-5"
-          style={{ minWidth: "400px", backgroundColor: "#C0C0C0" }}
+          style={{ backgroundColor: "#C0C0C0" }}
         >
           <Card.Body className="card-body">
-            <textarea
-              type="text"
-              readOnly={true}
-              placeholder="translation results"
-              style={{ height: "200px", width: "500px" }}
-            ></textarea>
+            <Row className="justify-content-md-center">
+              <Col>
+                <textarea
+                  type="text"
+                  readOnly={true}
+                  placeholder="translation results"
+                  style={{ height: "200px", width: "25rem", maxWidth: "95%" }}
+                ></textarea>
+              </Col>
+            </Row>
           </Card.Body>
         </Card>
       </Container>
