@@ -16,7 +16,7 @@ const DictionarySelector = () => {
           id="input-group-dropdown-2"
           type="text"
           disabled={loading}
-          value={dictionaryValue}
+          defaultValue={dictionaryValue}
           onChange={(e) => setDictionaryValue(e.currentTarget.value)}
         >
           <Dropdown.Item>

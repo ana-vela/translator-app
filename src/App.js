@@ -5,14 +5,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import DictionarySelector from "./DictionarySelector";
 import { DictionaryProvider } from "./DictionaryContext";
 import SearchBar from "./SearchBar";
-import { Container, Card, InputGroup, Row, Col, Button } from "react-bootstrap";
+import { SearchBarProvider } from "./SearchBarContext";
+import SearchButton from "./SearchButton";
+import { Container, Card, InputGroup, Row, Col } from "react-bootstrap";
 
 function App() {
   return (
-    <div className="App">
-      <header className="navbar navbar-light bg-light">
-        <div id="logo">Translate It!</div>
-      </header>
+    <div>
       <Container
         className="card-container pt-5 mb-5"
         style={{ backgroundColor: "eggshell" }}
@@ -22,11 +21,15 @@ function App() {
           <DictionaryProvider>
             <div>
               <div>
-                <Card.Title style={{fontSize: "30px"}}>New Search</Card.Title>
+                <Card.Title style={{ fontSize: "30px" }}>New Search</Card.Title>
                 <Card.Body className="card-body">
                   <Row className="justify-content-lg-center">
                     <Col md={6} lg={6}>
-                      <SearchBar />
+                      <SearchBarProvider>
+                        <SearchBar />
+
+                        <SearchButton />
+                      </SearchBarProvider>
                     </Col>
                     <Col md="auto">
                       <InputGroup.Append>
@@ -34,9 +37,6 @@ function App() {
                       </InputGroup.Append>
                     </Col>
                   </Row>
-                  <Button id="submit-button" variant="secondary" size="lg">
-                    Submit
-                  </Button>
                 </Card.Body>
               </div>
             </div>
