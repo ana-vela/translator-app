@@ -12,7 +12,7 @@ export const DictionaryProvider = (props) => {
     //The dropdown menu will display the 'Loading...' label until the component re-renders.
     //The setItems function will be used to update the value of items state.
     const [items, setItems] = useState([
-        { label: "Loading...", value: "" }
+        { label: "Loading dictionaries...", value: "" }
     ]);
 
      //This piece of state is bound to the value prop in the `select` statement.
