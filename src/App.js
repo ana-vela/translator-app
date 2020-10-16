@@ -45,11 +45,11 @@ function App() {
 
         <Card
           className="card-style pb-5"
-          style={{ backgroundColor: "#C0C0C0" }}
+          style={{ backgroundColor: "#C0C0C0", alignItems: "center" }}
         >
           <Card.Body className="card-body">
-            <Row className="justify-content-md-center">
-              <Col>
+            <Row className="justify-content-md-center" style={{alignItems: "center"}}>
+              <Col >
                 <textarea
                   type="text"
                   readOnly={true}
