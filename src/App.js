@@ -8,7 +8,7 @@ import SearchBar from "./SearchBar";
 import { SearchBarProvider } from "./SearchBarContext";
 import SearchButton from "./SearchButton";
 import { SearchButtonProvider } from "./SearchButtonContext";
-import { Container, Card, InputGroup, Row, Col } from "react-bootstrap";
+import { Container, Card, Row, Col } from "react-bootstrap";
 
 
 function App() {
@@ -36,9 +36,9 @@ function App() {
                             
                           </Col>
                           <Col md="auto">
-                            <InputGroup.Append>
+                            
                               <DictionarySelector />
-                            </InputGroup.Append>
+                            
                           </Col>
                         </Row>
                       </Card.Body>
