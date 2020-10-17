@@ -51,7 +51,12 @@ export const SearchButtonProvider = (props) => {
                 const body = await firstRequest.json();
                 console.log(body);
 
-                setTranslationEntry(parse(`${body}`));
+                try {
+                  setTranslationEntry(parse(`${body}`));
+                } catch(e) {
+                  setTranslationEntry(body.errorMessage)
+                }
+                
             }
 
             getTranslation();
