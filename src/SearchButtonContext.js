@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState, useRef, createContext} from 'react';
 import {DictionaryContext} from './DictionaryContext';
 import {SearchBarContext} from './SearchBarContext';
-import parse from 'html-react-parser';
+//import parse from 'html-react-parser';
 
 export const SearchButtonContext = createContext();
 
@@ -25,7 +25,7 @@ export const SearchButtonProvider = (props) => {
     const isMounted = useRef(false);
 
     //This state and the update function will hold the parsed `entryContent` HTML string.
-    const [translationEntry, setTranslationEntry] = useState();
+    const [translationEntry, setTranslationEntry] = useState('');
 
     /*
       This use effect will run when the button is clicked.
@@ -42,17 +42,17 @@ export const SearchButtonProvider = (props) => {
 
         if (isMounted.current) {
             const getTranslation = async () => {
-                const firstRequest = await fetch(`https://cors-anywhere.herokuapp.com/https://api.collinsdictionary.com/api/v1/dictionaries/${dictionaryChoice}/search/first/?q=${search}`, {
+                const translationRequest = await fetch(`https://cors-anywhere.herokuapp.com/https://api.collinsdictionary.com/api/v1/dictionaries/${dictionaryChoice}/search/first/?q=${search}`, {
                     method: 'GET', 
                     headers: {
                         'accessKey': process.env.REACT_APP_COLLINS_API_KEY,
                     }
                 })
-                const body = await firstRequest.json();
+                const body = await translationRequest.json();
                 console.log(body);
 
                 try {
-                  setTranslationEntry(parse(`${body}`));
+                  setTranslationEntry(body);
                 } catch(e) {
                   setTranslationEntry(body.errorMessage)
                 }
