@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState, useRef, createContext} from 'react';
 import {DictionaryContext} from './DictionaryContext';
 import {SearchBarContext} from './SearchBarContext';
-//import parse from 'html-react-parser';
+import parse from 'html-react-parser';
 
 export const SearchButtonContext = createContext();
 
@@ -49,12 +49,11 @@ export const SearchButtonProvider = (props) => {
                     }
                 })
                 const body = await translationRequest.json();
-                console.log(body);
 
                 try {
-                  setTranslationEntry(body);
+                  setTranslationEntry(parse(body.entryContent));
                 } catch(e) {
-                  setTranslationEntry(body.errorMessage)
+                  setTranslationEntry("Hmmmm. We couldn't find anything. Please re-check the search term and/or dictionary.")
                 }
                 
             }

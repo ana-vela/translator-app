@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {SearchButtonContext} from './SearchButtonContext';
 import {Card} from 'react-bootstrap';
-import parse from 'html-react-parser';
+//import parse from 'html-react-parser';
 
 const TranslationOutput = () => {
 
@@ -12,9 +12,7 @@ const TranslationOutput = () => {
         <Card style={{ width: '18rem' }}>
         
             <Card.Body>
-                <Card.Text>
-                    {parse(`${translationEntry}`)}
-                </Card.Text>
+                    {translationEntry}
             </Card.Body>
            
         </Card>
