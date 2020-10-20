@@ -9,6 +9,7 @@ import { SearchBarProvider } from "./SearchBarContext";
 import SearchButton from "./SearchButton";
 import { SearchButtonProvider } from "./SearchButtonContext";
 import { Container, Card, Row, Col } from "react-bootstrap";
+import TranslationOutput from "./TranslationOutput";
 
 
 function App() {
@@ -50,18 +51,7 @@ function App() {
                 className="card-style pb-5"
                 style={{ backgroundColor: "#C0C0C0" }}
               >
-                <Card.Body className="card-body">
-                  <Row className="justify-content-md-center">
-                    <Col>
-                      <textarea
-                        type="text"
-                        readOnly={true}
-                        placeholder="translation results"
-                        style={{ height: "200px", width: "25rem", maxWidth: "95%" }}
-                      ></textarea>
-                    </Col>
-                  </Row>
-                </Card.Body>
+                <TranslationOutput />
               </Card>
             </SearchButtonProvider>
           </SearchBarProvider>

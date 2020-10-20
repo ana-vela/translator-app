@@ -25,7 +25,7 @@ export const SearchButtonProvider = (props) => {
     const isMounted = useRef(false);
 
     //This state and the update function will hold the parsed `entryContent` HTML string.
-    const [translationEntry, setTranslationEntry] = useState();
+    const [translationEntry, setTranslationEntry] = useState('');
 
     /*
       This use effect will run when the button is clicked.
@@ -42,19 +42,18 @@ export const SearchButtonProvider = (props) => {
 
         if (isMounted.current) {
             const getTranslation = async () => {
-                const firstRequest = await fetch(`https://cors-anywhere.herokuapp.com/https://api.collinsdictionary.com/api/v1/dictionaries/${dictionaryChoice}/search/first/?q=${search}`, {
+                const translationRequest = await fetch(`https://cors-anywhere.herokuapp.com/https://api.collinsdictionary.com/api/v1/dictionaries/${dictionaryChoice}/search/first/?q=${search}`, {
                     method: 'GET', 
                     headers: {
                         'accessKey': process.env.REACT_APP_COLLINS_API_KEY,
                     }
                 })
-                const body = await firstRequest.json();
-                console.log(body);
+                const body = await translationRequest.json();
 
                 try {
-                  setTranslationEntry(parse(`${body}`));
+                  setTranslationEntry(parse(body.entryContent));
                 } catch(e) {
-                  setTranslationEntry(body.errorMessage)
+                  setTranslationEntry("Hmmmm. We couldn't find anything. Please re-check the search term and/or dictionary.")
                 }
                 
             }
