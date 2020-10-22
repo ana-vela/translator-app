@@ -32,26 +32,35 @@ function App() {
                           <Col md={6} lg={6}>
             
                               <SearchBar />
-
-                              <SearchButton />
                             
                           </Col>
-                          <Col md="auto">
-                            
+                          <Col md="auto">      
                               <DictionarySelector />
-                            
                           </Col>
+                          
+                          </Row>
+  
+                          <Row className="justify-content-lg-center">
+                          <Col md={4} lg={2}>
+                          <SearchButton />
+                          </Col>
+
                         </Row>
                       </Card.Body>
                     </div>
                   </div>  
               </Card>
 
-              <Card
-                className="card-style pb-5"
-                style={{ backgroundColor: "#C0C0C0" }}
+              <Card className="output-box"
+                
+                style={{ backgroundColor: "#C0C0C0", minWidth: '20rem' }}
+         
               >
+        <Row>
+               <Col>
                 <TranslationOutput />
+                </Col>
+                </Row>
               </Card>
             </SearchButtonProvider>
           </SearchBarProvider>
