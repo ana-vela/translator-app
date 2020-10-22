@@ -15,6 +15,9 @@ import TranslationOutput from "./TranslationOutput";
 function App() {
   return (
     <div>
+      <header className="navbar navbar-light bg-light">
+        <div id="logo">Translate It!</div>
+      </header>
       <Container
         className="card-container pt-5 mb-5"
         style={{ backgroundColor: "eggshell" }}
