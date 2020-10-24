@@ -15,9 +15,6 @@ import TranslationOutput from "./TranslationOutput";
 function App() {
   return (
     <div>
-      <header className="navbar navbar-light bg-light">
-        <div id="logo">Translate It!</div>
-      </header>
       <Container
         className="card-container pt-5 mb-5"
         style={{ backgroundColor: "eggshell" }}
@@ -29,7 +26,7 @@ function App() {
               <Card className="card-style" style={{ backgroundColor: "#4F5CBE" }}> 
                   <div>
                     <div>
-                      <Card.Title style={{ fontSize: "30px" }}>New Search</Card.Title>
+                      <Card.Title style={{ fontSize: "30px" }}>Translr</Card.Title>
                       <Card.Body className="card-body">
                         <Row className="justify-content-lg-center">
                           <Col md={6} lg={6}>
