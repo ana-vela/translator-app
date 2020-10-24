@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {SearchButtonContext} from './SearchButtonContext';
-import {Card} from 'react-bootstrap';
+import {Card, Container, Row, Col} from 'react-bootstrap';
 //import parse from 'html-react-parser';
 
 const TranslationOutput = () => {
@@ -9,13 +9,17 @@ const TranslationOutput = () => {
     const {translationEntry} = buttonContext;
 
     return(
-        <Card style={{ width: '18rem' }}>
-        
-            <Card.Body>
-                    {translationEntry}
-            </Card.Body>
-           
-        </Card>
+        <Container>
+            <Card>
+                <Row>
+                    <Col lg={2}>
+                        <Card.Body style={{minWidth: '20rem'}}>
+                            {translationEntry}
+                        </Card.Body>
+                    </Col>
+                </Row>
+            </Card>
+        </Container>
     );
 
 };

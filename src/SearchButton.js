@@ -1,5 +1,7 @@
 import React, {useContext} from 'react';
 import {SearchButtonContext} from './SearchButtonContext';
+import { Button } from "react-bootstrap";
+
 
 const SearchButton = () => {
 
@@ -7,14 +9,15 @@ const SearchButton = () => {
     const {handleSubmit} = buttonContext;
 
     return (
-        <button 
+        <Button 
             onClick={handleSubmit}
             id="submit-button"
             variant="secondary"
             size="lg"
+            block
             >
             Search
-        </button>
+        </Button>
     );
 
 };
