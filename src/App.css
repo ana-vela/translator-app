@@ -6,28 +6,15 @@
   margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-header {
+footer {
   display: flex;
   justify-content: space-between;
   height: 100px;
   background-color: #c7ebe9;
+  position: relative;
+  text-align: center;
+  margin-top: 30px;
 }
-
-/* .item {
-  background-color: rgb(218, 212, 212);
-  height: 300px;
-  border: 1px solid rgb(0, 0, 0);
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-} */
 
 .dropdown .btn {
   background-color: white;
@@ -57,5 +44,9 @@ header {
 }
 
 .output-box {
-  padding: 5rem 20rem;
+  padding: 50px 100px;
+  /* margin-bottom: 200px; */
+  /* height: 00px; */
+  /* max-width: 100%; */
 }
+

@@ -16,7 +16,7 @@ function App() {
   return (
     <div>
       <Container
-        className="card-container pt-5 mb-5"
+        className="card-container"
         style={{ backgroundColor: "eggshell" }}
         fluid
       >
@@ -51,20 +51,24 @@ function App() {
                   </div>  
               </Card>
 
-              <Card className="output-box"
+              <Card className="card-style output-box"
                 
-                style={{ backgroundColor: "#C0C0C0", minWidth: '20rem' }}
+                style={{ backgroundColor: "#C0C0C0"}}
          
               >
-        <Row>
-               <Col>
-                <TranslationOutput />
-                </Col>
-                </Row>
+              {/* <Row className="justify-content-lg-center"> */}
+                {/* <Col xs="12" md="10" lg="8"> */}
+                <TranslationOutput style={{minWidth: '200px'}}  />
+                {/* </Col> */}
+                {/* </Row> */}
+     
               </Card>
             </SearchButtonProvider>
           </SearchBarProvider>
         </DictionaryProvider>
+        <footer id="footer" className="bg-light">
+          An app created by <a href="https://github.com/ana-vela">Ana</a> and <a href="https://github.com/huntercallaway">Hunter</a>.
+        </footer>
       </Container>
     </div>
   );
