@@ -26,7 +26,7 @@ function App() {
               <Card className="card-style" style={{ backgroundColor: "#4F5CBE" }}> 
                   <div>
                     <div>
-                      <Card.Title style={{ fontSize: "30px" }}>Translr</Card.Title>
+                      <h1><Card.Title style={{ fontSize: "30px" }}>Translr</Card.Title></h1>
                       <Card.Body className="card-body">
                         <Row className="justify-content-lg-center">
                           <Col md={6} lg={6}>
@@ -67,7 +67,7 @@ function App() {
           </SearchBarProvider>
         </DictionaryProvider>
         <footer id="footer" className="bg-light">
-          An app created by <a href="https://github.com/ana-vela">Ana</a> and <a href="https://github.com/huntercallaway">Hunter</a>.
+          An app created by <a style={{color: 'blue'}}href="https://github.com/ana-vela">Ana</a> and <a style={{color: 'blue'}} href="https://github.com/huntercallaway">Hunter</a>.
         </footer>
       </Container>
     </div>
