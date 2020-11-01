@@ -9,11 +9,11 @@
 footer {
   display: flex;
   justify-content: space-between;
-  height: 100px;
+  height: 80px;
   background-color: #c7ebe9;
   position: relative;
   text-align: center;
-  margin-top: 30px;
+  padding-top: 30px;
 }
 
 .dropdown .btn {
@@ -49,4 +49,3 @@ footer {
   /* height: 00px; */
   /* max-width: 100%; */
 }
-
