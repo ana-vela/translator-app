@@ -22,7 +22,6 @@ const SearchBar = () => {
         <FormControl
           size="lg"
           aria-label="searchbar"
-          aria-describedby="basic-addon2"
           value={searchTerm}
           placeholder={"Type your search here."}
           onChange={handleInputChange}

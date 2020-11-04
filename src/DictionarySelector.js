@@ -8,7 +8,7 @@ const DictionarySelector = () => {
   const { loading, items, dictionaryValue, setDictionaryValue } = sourceContext;
 
   return (
-    <Form.Control as="select" size="lg"
+    <Form.Control as="select" size="lg" aria-label="dictionary selector"
       disabled={loading}
       defaultValue={dictionaryValue}
       onChange={e => setDictionaryValue(e.currentTarget.value)}>
