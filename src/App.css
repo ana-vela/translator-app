@@ -4,6 +4,7 @@
   height: 100%;
   font-size: 100%;
   margin: 0;
+  color: red;
 }
 
 footer {
@@ -13,6 +14,7 @@ footer {
   background-color: #c7ebe9;
   position: relative;
   text-align: center;
+  /* vertical-align: center; */
   padding-top: 30px;
 }
 
@@ -43,9 +45,3 @@ footer {
   margin-top: 50px;
 }
 
-.output-box {
-  padding: 50px 100px;
-  /* margin-bottom: 200px; */
-  /* height: 00px; */
-  /* max-width: 100%; */
-}

@@ -58,7 +58,7 @@ function App() {
               >
               {/* <Row className="justify-content-lg-center"> */}
                 {/* <Col xs="12" md="10" lg="8"> */}
-                <TranslationOutput style={{minWidth: '200px'}}  />
+                <TranslationOutput />
                 {/* </Col> */}
                 {/* </Row> */}
      
