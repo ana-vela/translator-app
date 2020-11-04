@@ -7,14 +7,11 @@
   color: red;
 }
 
-footer {
+#footer {
   display: flex;
-  justify-content: space-between;
   height: 80px;
   background-color: #c7ebe9;
-  position: relative;
-  text-align: center;
-  /* vertical-align: center; */
+  justify-content: center;
   padding-top: 30px;
 }
 
@@ -44,4 +41,3 @@ footer {
 #submit-button {
   margin-top: 50px;
 }
-
