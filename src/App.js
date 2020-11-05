@@ -25,7 +25,7 @@ function App() {
             <SearchButtonProvider>
               <Card
                 className="card-style"
-                style={{ backgroundColor: "#4F5CBE" }}
+                style={{ backgroundColor: "#4F5CBE", justifyContent: "center" }}
               >
                 <div>
                   <div>
@@ -35,16 +35,16 @@ function App() {
                       </Card.Title>
                     </h1>
                     <Card.Body className="card-body">
-                      <Row className="justify-content-lg-center">
-                        <Col md={6} lg={6}>
+                      <Row className="justify-content-md-center justify-content-lg-center">
+                        <Col md="auto" lg={6}>
                           <SearchBar />
                         </Col>
                         <Col md="auto">
                           <DictionarySelector />
                         </Col>
                       </Row>
-                      <Row className="justify-content-lg-center">
-                        <Col md={4} lg={2}>
+                      <Row className="justify-content-md-center">
+                        <Col sm={12} md={6} lg={2} fluid> 
                           <SearchButton />
                         </Col>
                       </Row>
