@@ -10,61 +10,58 @@ import SearchButton from "./SearchButton";
 import { SearchButtonProvider } from "./SearchButtonContext";
 import { Container, Card, Row, Col } from "react-bootstrap";
 import TranslationOutput from "./TranslationOutput";
-
+import Footer from "./Footer";
 
 function App() {
   return (
-    <div>
+    <div role="main">
       <Container
-        className="card-container pt-5 mb-5"
+        className="card-container"
         style={{ backgroundColor: "eggshell" }}
         fluid
       >
         <DictionaryProvider>
           <SearchBarProvider>
             <SearchButtonProvider>
-              <Card className="card-style" style={{ backgroundColor: "#4F5CBE" }}> 
-                  <div>
-                    <div>
-                      <Card.Title style={{ fontSize: "30px" }}>Translr</Card.Title>
-                      <Card.Body className="card-body">
-                        <Row className="justify-content-lg-center">
-                          <Col md={6} lg={6}>
-            
-                              <SearchBar />
-                            
-                          </Col>
-                          <Col md="auto">      
-                              <DictionarySelector />
-                          </Col>
-                          
-                          </Row>
-  
-                          <Row className="justify-content-lg-center">
-                          <Col md={4} lg={2}>
-                          <SearchButton />
-                          </Col>
-
-                        </Row>
-                      </Card.Body>
-                    </div>
-                  </div>  
-              </Card>
-
-              <Card className="output-box"
-                
-                style={{ backgroundColor: "#C0C0C0", minWidth: '20rem' }}
-         
+              <Card
+                className="card-style"
+                style={{ backgroundColor: "#4F5CBE", justifyContent: "center" }}
               >
-        <Row>
-               <Col>
+                <div>
+                  <div>
+                    <h1>
+                      <Card.Title style={{ fontSize: "30px" }}>
+                        Translr
+                      </Card.Title>
+                    </h1>
+                    <Card.Body className="card-body">
+                      <Row className="justify-content-md-center justify-content-lg-center">
+                        <Col md="auto" lg={6}>
+                          <SearchBar />
+                        </Col>
+                        <Col md="auto">
+                          <DictionarySelector />
+                        </Col>
+                      </Row>
+                      <Row className="justify-content-md-center">
+                        <Col sm={12} md={6} lg={2} fluid> 
+                          <SearchButton />
+                        </Col>
+                      </Row>
+                    </Card.Body>
+                  </div>
+                </div>
+              </Card>
+              <Card
+                className="card-style output-box"
+                style={{ backgroundColor: "#C0C0C0" }}
+              >
                 <TranslationOutput />
-                </Col>
-                </Row>
               </Card>
             </SearchButtonProvider>
           </SearchBarProvider>
         </DictionaryProvider>
+        <Footer />
       </Container>
     </div>
   );

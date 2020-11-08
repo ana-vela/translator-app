@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
 import { DictionaryContext } from "./DictionaryContext";
+import { Form } from 'react-bootstrap';
+
 
 const DictionarySelector = () => {
   const sourceContext = useContext(DictionaryContext);
   const { loading, items, dictionaryValue, setDictionaryValue } = sourceContext;
 
   return (
-    <select 
+    <Form.Control as="select" size="lg" aria-label="dictionary selector"
       disabled={loading}
       defaultValue={dictionaryValue}
       onChange={e => setDictionaryValue(e.currentTarget.value)}>
@@ -15,7 +17,7 @@ const DictionarySelector = () => {
               {item.label}
           </option>
       ))}
-    </select>    
+    </Form.Control>    
   );
 };
 
