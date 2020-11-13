@@ -54,7 +54,11 @@ Custom media queries
 @media (min-width: 320px) and (max-width:374px) { 
   .output-box .card-body {
     font-size: 20px;
-    margin: 0 auto;
+  }
+ 
+  .card-body {
+    margin-top: -10px;
+    margin-bottom: -30px;
   }
 }
 
@@ -62,6 +66,11 @@ Custom media queries
   .output-box .card-body {
     font-size: 20px;
     margin-left: 20px;
+  }
+  
+  .card-body {
+    margin-top: -10px;
+    margin-bottom: -30px;
   }
 }
 
