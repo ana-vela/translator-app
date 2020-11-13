@@ -46,3 +46,22 @@
 
 justify-content: center;
 }
+
+/*
+Custom media queries
+*/
+ 
+@media (min-width: 320px) and (max-width:374px) { 
+  .output-box .card-body {
+    font-size: 20px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 375px) and (max-width:415px) {
+  .output-box .card-body {
+    font-size: 20px;
+    margin-left: 20px;
+  }
+}
+

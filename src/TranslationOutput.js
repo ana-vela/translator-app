@@ -9,12 +9,13 @@ const TranslationOutput = () => {
   const { translationEntry } = buttonContext;
 
   return (
-    <Container lg={6} style={ {paddingTop: "50px"} }>
-      <Card  
-        style={{ minWidth: "200px", width: "100%"}}
+    <Container lg={6} style={{ paddingTop: "50px" }} fluid>
+      <Card
+        style={{ minWidth: "200px", width: "100%" }}
         className="text-center"
       >
-        <Row  lg={6}
+        <Row
+          lg={6}
           style={{
             textAlign: "left",
             minWidth: "250px",
@@ -23,7 +24,16 @@ const TranslationOutput = () => {
           }}
           className="justify-content-md-center"
         >
-          <Col  lg={6} style={{ overflow: "auto", width: '100%' }}>
+          <Col
+            // sm={12}
+            lg={6}
+            style={{
+              overflow: "auto",
+              width: "100%",
+              // textAlign: "left",
+              // justifyContent: "center",
+            }}
+          >
             <Card.Body
               style={{
                 minWidth: "250px",

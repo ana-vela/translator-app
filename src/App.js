@@ -25,13 +25,13 @@ function App() {
             <SearchButtonProvider>
               <Card
                 className="card-style"
-                style={{ backgroundColor: "#4F5CBE", justifyContent: "center" }}
+                style={{ backgroundColor: "#4F5CBE"}}
               >
                 <div>
                   <div>
                     <h1>
-                      <Card.Title style={{ fontSize: "30px" }}>
-                        Translr
+                      <Card.Title style={{ fontSize: "30px", fontWeight: "bold" }}>
+                        translr
                       </Card.Title>
                     </h1>
                     <Card.Body className="card-body">
@@ -54,7 +54,7 @@ function App() {
               </Card>
               <Card
                 className="card-style output-box"
-                style={{ backgroundColor: "#C0C0C0" }}
+                style={{ backgroundColor: "#C0C0C0"}}
               >
                 <TranslationOutput />
               </Card>
